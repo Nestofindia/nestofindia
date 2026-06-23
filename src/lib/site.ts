@@ -19,7 +19,7 @@ export const site = {
   },
 } as const;
 
-export type NavItem = { label: string; href: string };
+export type NavItem = { label: string; href: string; newTab?: boolean };
 
 export const primaryNav: NavItem[] = [
   { label: "About", href: "/about" },
@@ -27,8 +27,8 @@ export const primaryNav: NavItem[] = [
   { label: "Council", href: "/council" },
   { label: "Committees", href: "/committees" },
   { label: "Programmes", href: "/programmes" },
-  { label: "Membership", href: "/membership" },
-  { label: "Contact", href: "/contact" },
+  { label: "Downloads", href: "/guidelines" },
+  { label: "Join Us", href: "/membership"}
 ];
 
 export const footerNav: { title: string; items: NavItem[] }[] = [
@@ -47,6 +47,7 @@ export const footerNav: { title: string; items: NavItem[] }[] = [
       { label: "Programmes", href: "/programmes" },
       { label: "Social Services", href: "/social-services" },
       { label: "Honours", href: "/honours" },
+      { label: "Downloads", href: "/guidelines", newTab: true },
     ],
   },
   {

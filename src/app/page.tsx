@@ -4,12 +4,19 @@ import { HeroLinework } from "@/components/Linework";
 import { Reveal } from "@/components/Reveal";
 import { CTABand } from "@/components/CTABand";
 import { Eyebrow, SectionDivider, HairlineGrid } from "@/components/ui";
+import { DataTable } from "@/components/DataTable";
+import { OurResponseGraph } from "@/components/OurResponseGraph";
 import {
   mission,
   industryGaps,
   priorityAreas,
   programmes,
   boardOfDirectors,
+  challengesWeAddress,
+  ourResponse,
+  whyTattooingMatters,
+  tattooingCanBe,
+  whyThisMatters,
 } from "@/lib/content";
 
 export default function HomePage() {
@@ -101,6 +108,89 @@ export default function HomePage() {
               </Reveal>
             ))}
           </HairlineGrid>
+        </div>
+      </section>
+
+      {/* ── Challenges we address ────────────────────────── */}
+      <section className="border-b border-line bg-paper-deep">
+        <div className="container-page py-16 lg:py-24">
+          <Reveal>
+            <DataTable
+              title={challengesWeAddress.title}
+              leftHeader={challengesWeAddress.columns.challenge}
+              rightHeader={challengesWeAddress.columns.why}
+              leftColWidth="minmax(11rem,0.65fr)"
+              rows={challengesWeAddress.rows.map((r) => ({
+                key: r.challenge,
+                left: r.challenge,
+                right: r.why,
+              }))}
+            />
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ── Our response ─────────────────────────────────── */}
+      <section className="border-b border-line">
+        <div className="container-page py-16 lg:py-24">
+          <Reveal>
+            <OurResponseGraph {...ourResponse} />
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ── Why tattooing matters ────────────────────────── */}
+      <section className="border-b border-line bg-paper-deep">
+        <div className="container-page py-16 lg:py-24">
+          <Reveal className="max-w-3xl">
+            {/* <Eyebrow>Why tattooing matters</Eyebrow> */}
+            <h2 className="mt-4 text-3xl leading-tight sm:text-4xl lg:text-5xl">
+              {whyTattooingMatters.title}
+            </h2>
+            <div className="prose-body mt-6 max-w-prose">
+              {whyTattooingMatters.paragraphs.map((p) => (
+                <p key={p}>{p}</p>
+              ))}
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ── Tattooing can be many things ─────────────────── */}
+      <section className="border-b border-line">
+        <div className="container-page py-16 lg:py-24">
+          <Reveal>
+            <DataTable
+              title={tattooingCanBe.title}
+              leftHeader={tattooingCanBe.columns.as}
+              rightHeader={tattooingCanBe.columns.meaning}
+              leftHeaderClass="bg-ochre-deep text-paper"
+              rightHeaderClass="bg-indigo text-paper"
+              leftColWidth="minmax(9rem,0.45fr)"
+              rows={tattooingCanBe.rows.map((r) => ({
+                key: r.as,
+                left: r.as,
+                right: r.meaning,
+              }))}
+            />
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ── Why this matters to NOI ──────────────────────── */}
+      <section className="border-b border-line bg-paper-deep">
+        <div className="container-page py-16 lg:py-24">
+          <Reveal className="max-w-3xl">
+            {/* <Eyebrow>Why this matters</Eyebrow> */}
+            <h2 className="mt-4 text-3xl leading-tight sm:text-4xl lg:text-5xl">
+              {whyThisMatters.title}
+            </h2>
+            <div className="prose-body mt-6 max-w-prose">
+              {whyThisMatters.paragraphs.map((p) => (
+                <p key={p}>{p}</p>
+              ))}
+            </div>
+          </Reveal>
         </div>
       </section>
 

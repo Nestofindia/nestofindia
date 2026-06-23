@@ -17,7 +17,7 @@ export default function CommitteesPage() {
       <PageHeader
         eyebrow="Committees"
         title="Nine committees, one ecosystem."
-        intro="The work of the council is carried out through standing committees, each owning a clear mandate and convening the right expertise."
+        intro="Nest of India translates its overarching long-term vision into tangible daily milestones through nine specialised, volunteer-led working groups. These committees combine domain-specific expertise to execute key priorities, draft objective guidance, and reinforce industry credibility."
       />
 
       <section>

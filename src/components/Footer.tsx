@@ -46,7 +46,11 @@ export function Footer() {
                 <ul className="mt-4 space-y-3">
                   {group.items.map((item) => (
                     <li key={item.href}>
-                      <Link href={item.href} className="link-underline text-sm text-paper/80">
+                      <Link
+                        href={item.href}
+                        className="link-underline text-sm text-paper/80"
+                        {...(item.newTab ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                      >
                         {item.label}
                       </Link>
                     </li>

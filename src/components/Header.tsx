@@ -45,7 +45,7 @@ export function Header() {
       <div className="container-page flex h-[72px] items-center justify-between">
         <Wordmark />
 
-        <nav className="hidden items-center gap-7 lg:flex" aria-label="Primary">
+        <nav className="hidden items-center gap-6 lg:flex" aria-label="Primary">
           {primaryNav.map((item) => {
             const active = pathname === item.href;
             return (
@@ -53,16 +53,14 @@ export function Header() {
                 key={item.href}
                 href={item.href}
                 aria-current={active ? "page" : undefined}
-                className={`link-underline font-mono text-[0.74rem] uppercase tracking-label transition-colors ${
-                  active ? "text-indigo" : "text-ink-soft hover:text-ink"
-                }`}
+                className="header-nav-link"
               >
                 {item.label}
               </Link>
             );
           })}
-          <Link href="/membership" className="btn-primary !px-5 !py-2.5">
-            Join
+          <Link href="/contact" className="btn-primary !px-5 !py-2.5">
+            Contact
           </Link>
         </nav>
 
@@ -101,23 +99,22 @@ export function Header() {
           open ? "max-h-[80vh]" : "max-h-0"
         } transition-[max-height] duration-400 ease-out`}
       >
-        <nav className="container-page flex flex-col py-4" aria-label="Mobile">
+        <nav className="container-page flex flex-col gap-1 py-4" aria-label="Mobile">
           {primaryNav.map((item) => {
             const active = pathname === item.href;
             return (
               <Link
                 key={item.href}
                 href={item.href}
-                className={`border-b border-line py-4 font-mono text-sm uppercase tracking-label ${
-                  active ? "text-indigo" : "text-ink-soft"
-                }`}
+                aria-current={active ? "page" : undefined}
+                className="header-nav-link w-full px-4 py-3.5 text-sm"
               >
                 {item.label}
               </Link>
             );
           })}
-          <Link href="/membership" className="btn-primary mt-5 w-full">
-            Become a member
+          <Link href="/contact" className="btn-primary mt-3 w-full">
+            Contact
           </Link>
         </nav>
       </div>

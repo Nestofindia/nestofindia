@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import { PageHeader, Eyebrow } from "@/components/ui";
 import { Reveal } from "@/components/Reveal";
 import { CTABand } from "@/components/CTABand";
-import { priorityAreas } from "@/lib/content";
+import { FoundationInfographic } from "@/components/DignifyMindMap";
+import { PrinciplesTogetherTable } from "@/components/PrinciplesTogetherTable";
+import { priorityAreas, foundationOfWork, principlesTogether } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Our Work — Priority Areas",
@@ -44,9 +46,45 @@ export default function OurWorkPage() {
         </div>
       </section>
 
+      <section className="border-t border-line bg-paper-deep">
+        <div className="container-page py-16 lg:py-24">
+          <Reveal className="max-w-3xl">
+            <p className="flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-sm font-bold uppercase tracking-label text-indigo sm:text-base">
+              <span>Protect</span>
+              <span className="text-ochre" aria-hidden="true">•</span>
+              <span>Dignify</span>
+              <span className="text-ochre" aria-hidden="true">•</span>
+              <span>Build</span>
+            </p>
+            <h2 className="mt-4 text-3xl leading-tight sm:text-4xl lg:text-5xl">
+              {foundationOfWork.title}
+            </h2>
+            <div className="prose-body mt-6 max-w-prose">
+              {foundationOfWork.paragraphs.map((paragraph) => (
+                <p key={paragraph} className="text-lg text-ink-soft">
+                  {paragraph}
+                </p>
+              ))}
+            </div>
+          </Reveal>
+
+          <div className="mt-14 space-y-14 lg:mt-16 lg:space-y-16">
+            {foundationOfWork.pillars.map((pillar, i) => (
+              <Reveal key={pillar.centerLabel} delay={i * 60}>
+                <FoundationInfographic {...pillar} />
+              </Reveal>
+            ))}
+
+            <Reveal delay={180}>
+              <PrinciplesTogetherTable {...principlesTogether} />
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
       <CTABand
         title="Partner with the work"
-        body="Government bodies, institutions, studios, and CSR partners help turn these priorities into lasting infrastructure."
+        body="If you are part of an institution, university, public body, cultural organisation, or CSR programme, this is the page where you should immediately understand where you fit in."
         primary={{ label: "Explore partnerships", href: "/membership#partnerships" }}
         secondary={{ label: "Contact the council", href: "/contact" }}
       />

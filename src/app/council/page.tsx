@@ -2,7 +2,17 @@ import type { Metadata } from "next";
 import { PageHeader, Eyebrow, SectionDivider, HairlineGrid } from "@/components/ui";
 import { Reveal } from "@/components/Reveal";
 import { CTABand } from "@/components/CTABand";
-import { boardOfDirectors, boardNote, coreTeam, contributors } from "@/lib/content";
+import {
+  boardOfDirectors,
+  boardNote,
+  boardOfDirectorsSubhead,
+  governingCouncilIntro,
+  coreTeam,
+  coreTeamSubhead,
+  inMemoriam,
+  inMemoriamIntro,
+  contributors,
+} from "@/lib/content";
 import type { Person } from "@/lib/content";
 
 function PersonCard({ person }: { person: Person }) {
@@ -45,12 +55,29 @@ export default function CouncilPage() {
         intro="Artists, educators, tribal-art custodians, health and legal experts, and organisers — united around a single purpose."
       />
 
+      {/* Governing Council intro */}
+      <section className="border-b border-line">
+        <div className="container-page py-16 lg:py-24">
+          <Reveal className="max-w-3xl">
+            <Eyebrow>{governingCouncilIntro.eyebrow}</Eyebrow>
+            <div className="mt-6 space-y-4">
+              {governingCouncilIntro.paragraphs.map((paragraph) => (
+                <p key={paragraph} className="text-lg leading-relaxed text-ink-soft">
+                  {paragraph}
+                </p>
+              ))}
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
       {/* Board */}
       <section className="border-b border-line">
         <div className="container-page py-16 lg:py-24">
-          <Reveal>
+          <Reveal className="max-w-3xl">
             <Eyebrow>Board of Directors</Eyebrow>
             <h2 className="mt-3 text-3xl leading-tight sm:text-4xl">Governance &amp; direction</h2>
+            <p className="mt-4 text-lg leading-relaxed text-ink-soft">{boardOfDirectorsSubhead}</p>
           </Reveal>
           <HairlineGrid className="mt-10">
             {boardOfDirectors.map((p, i) => (
@@ -59,19 +86,42 @@ export default function CouncilPage() {
               </Reveal>
             ))}
           </HairlineGrid>
-          <p className="mt-6 max-w-prose text-sm leading-relaxed text-ink-faint">{boardNote}</p>
+          <p className="mt-8 flex items-start gap-2 border-l-2 border-ochre/50 bg-paper-deep/50 px-4 py-3 text-sm leading-relaxed text-ink-soft">
+            <span className="font-mono text-[0.7rem] font-bold uppercase tracking-label text-ochre-deep">
+              Note
+            </span>
+            <span>{boardNote}</span>
+          </p>
         </div>
       </section>
 
       {/* Core team */}
       <section className="border-b border-line bg-paper-deep">
         <div className="container-page py-16 lg:py-24">
-          <Reveal>
-            <Eyebrow>Core Team</Eyebrow>
+          <Reveal className="max-w-3xl">
+            <Eyebrow>Founding and Core Team</Eyebrow>
             <h2 className="mt-3 text-3xl leading-tight sm:text-4xl">Founding members</h2>
+            <p className="mt-4 text-lg leading-relaxed text-ink-soft">{coreTeamSubhead}</p>
           </Reveal>
           <HairlineGrid className="mt-10">
             {coreTeam.map((p, i) => (
+              <Reveal key={p.name} delay={i * 30} className="h-full">
+                <PersonCard person={p} />
+              </Reveal>
+            ))}
+          </HairlineGrid>
+        </div>
+      </section>
+
+      {/* In memoriam */}
+      <section className="border-b border-line">
+        <div className="container-page py-16 lg:py-24">
+          <Reveal className="max-w-3xl">
+            <Eyebrow>In Honour and Remembrance</Eyebrow>
+            <p className="mt-6 text-lg leading-relaxed text-ink-soft">{inMemoriamIntro}</p>
+          </Reveal>
+          <HairlineGrid className="mt-10">
+            {inMemoriam.map((p, i) => (
               <Reveal key={p.name} delay={i * 30} className="h-full">
                 <PersonCard person={p} />
               </Reveal>
