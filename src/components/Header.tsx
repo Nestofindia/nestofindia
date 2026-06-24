@@ -1,26 +1,22 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { primaryNav, site } from "@/lib/site";
 
 function Wordmark() {
   return (
-    <Link href="/" className="group flex items-center gap-3" aria-label={`${site.name} — home`}>
-      <svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true" className="text-indigo">
-        <circle cx="17" cy="17" r="16" fill="none" stroke="currentColor" strokeWidth="1.25" />
-        <path d="M17 5 L9 25 L25 25 Z" fill="none" stroke="currentColor" strokeWidth="1.25" strokeLinejoin="round" />
-        <circle cx="17" cy="17" r="2.6" fill="#C18A2B" />
-      </svg>
-      <span className="flex flex-col leading-none">
-        <span className="font-display text-[1.05rem] font-medium tracking-tight text-ink">
-          Nest of India
-        </span>
-        <span className="mt-1 font-mono text-[0.58rem] uppercase tracking-label text-ink-faint">
-          National Council
-        </span>
-      </span>
+    <Link href="/" className="group flex items-center" aria-label={`${site.name} — home`}>
+      <Image
+        src="/noi-logo.png"
+        alt={`${site.name} logo`}
+        width={110}
+        height={45}
+        priority
+        className="h-[45px] w-[110px] object-contain"
+      />
     </Link>
   );
 }

@@ -3,7 +3,7 @@ import Image from "next/image";
 import { PageHeader, Eyebrow, SectionDivider, HairlineGrid } from "@/components/ui";
 import { Reveal } from "@/components/Reveal";
 import { CTABand } from "@/components/CTABand";
-import { whoWeAre, mission, storyBehindNest, whyNestExists, values } from "@/lib/content";
+import { whoWeAre, whoWeAreVideo, storyBehindNest, whyNestExists, whyNestExistsVideo, values } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "About — Who We Are",
@@ -21,21 +21,37 @@ export default function AboutPage() {
         intro="Nest of India is dedicated to protecting heritage, dignifying artists, and building a stronger future for India&#39;s tattoo and art community through historic culture, education, research, collaboration, and spiritual evolution."
       />
 
-      {/* Who we are */}
+      {/* Who we are — video left, text right */}
       <section className="border-b border-line">
-        <div className="container-page grid gap-10 py-16 lg:grid-cols-[0.4fr_1fr] lg:py-24">
-          <Eyebrow className="lg:pt-2">Who we are</Eyebrow>
-          <Reveal className="prose-body max-w-prose">
-            {whoWeAre.map((p) => (
-              <p key={p} className="text-lg">
-                {p}
-              </p>
-            ))}
-            <p className="text-lg">
-              We believe artists are custodians of culture and creators of legacy — and we are
-              building an inclusive national ecosystem where they are respected, protected, and
-              certified.
-            </p>
+        <div className="container-page py-16 lg:py-24">
+          <Reveal className="grid items-start gap-10 lg:grid-cols-2 lg:gap-16">
+            <div className="relative aspect-[4/5] overflow-hidden border border-line">
+              <video
+                src={whoWeAreVideo}
+                className="absolute inset-0 h-full w-full object-cover"
+                autoPlay
+                muted
+                loop
+                playsInline
+                aria-label="Demonstration of the tattoo designing process"
+              />
+            </div>
+
+            <div>
+              <Eyebrow>Who we are</Eyebrow>
+              <div className="prose-body mt-6 max-w-prose">
+                {whoWeAre.map((p) => (
+                  <p key={p} className="text-lg">
+                    {p}
+                  </p>
+                ))}
+                <p className="text-lg">
+                  We believe artists are custodians of culture and creators of legacy — and we are
+                  building an inclusive national ecosystem where they are respected, protected, and
+                  certified.
+                </p>
+              </div>
+            </div>
           </Reveal>
         </div>
       </section>
@@ -78,15 +94,17 @@ export default function AboutPage() {
       {/* Why Nest of India exists — content left, image right */}
       <section className="border-b border-line bg-paper-deep">
         <div className="container-page py-16 lg:py-24">
-          <Reveal className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+          <Reveal className="grid items-start gap-10 lg:grid-cols-2 lg:gap-16">
             <div className="lg:order-2">
-              <div className="relative aspect-[5/4] overflow-hidden border border-line">
-                <Image
-                  src={whyNestExists.image}
-                  alt={whyNestExists.imageAlt}
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="object-cover"
+              <div className="relative aspect-[4/5] overflow-hidden border border-line">
+                <video
+                  src={whyNestExistsVideo}
+                  className="absolute inset-0 h-full w-full object-cover"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  aria-label={whyNestExists.imageAlt}
                 />
               </div>
             </div>
@@ -102,52 +120,6 @@ export default function AboutPage() {
               </div>
             </div>
           </Reveal>
-        </div>
-      </section>
-
-      {/* Vision / the gap */}
-      {/* <section className="border-b border-line">
-        <div className="container-page py-16 lg:py-24">
-          <Reveal className="max-w-3xl">
-            <Eyebrow>Vision</Eyebrow>
-            <h2 className="mt-4 text-3xl leading-tight sm:text-4xl">
-              From the underground to the recognised.
-            </h2>
-            <p className="mt-5 max-w-prose text-lg text-ink-soft">{visionIntro}</p>
-            <p className="mt-4 max-w-prose text-lg text-ink-soft">
-              Our vision is an India where traditional knowledge and modern artistry thrive together
-              — supported by formal education, government recognition, health and safety standards,
-              artist welfare, and the active preservation of heritage and tribal art.
-            </p>
-          </Reveal>
-        </div>
-      </section> */}
-
-      {/* Vision */}
-      <section className="border-b border-line bg-indigo text-paper">
-        <div className="container-page grid gap-8 py-16 lg:grid-cols-[0.4fr_1fr] lg:py-24">
-          <p className="eyebrow text-ochre-soft lg:col-start-1 lg:row-start-1 lg:pt-3">Vision</p>
-          <Reveal className="lg:col-start-2 lg:row-start-1">
-            <p className="max-w-4xl font-display text-2xl leading-snug sm:text-3xl lg:text-[2.5rem] lg:leading-[1.25]">
-              Our vision is an India where traditional knowledge and modern artistry thrive together
-              — supported by formal education, government recognition, health and safety standards,
-              artist welfare, and the active preservation of heritage and tribal art.
-            </p>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* Mission — mirrored: text left, label right */}
-      <section className="border-b border-line bg-indigo text-paper">
-        <div className="container-page grid gap-8 py-16 lg:grid-cols-[1fr_0.4fr] lg:py-24">
-          <Reveal className="order-1 lg:col-start-1 lg:row-start-1">
-            <p className="max-w-4xl font-display text-2xl leading-snug sm:text-3xl lg:text-[2.5rem] lg:leading-[1.25]">
-              {mission}
-            </p>
-          </Reveal>
-          <p className="eyebrow order-2 text-ochre-soft lg:col-start-2 lg:row-start-1 lg:pt-3 lg:text-right">
-            Mission
-          </p>
         </div>
       </section>
 

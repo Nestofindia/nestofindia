@@ -4,7 +4,7 @@ import { PageHeader, Eyebrow } from "@/components/ui";
 import { Reveal } from "@/components/Reveal";
 import { CTABand } from "@/components/CTABand";
 import { FutureMindMap } from "@/components/FutureMindMap";
-import { programmes, futureVision, successLooksLike } from "@/lib/content";
+import { programmes, programmeHomeImages, futureVision, successLooksLike } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Programmes",
@@ -48,7 +48,7 @@ export default function ProgrammesPage() {
                 <div className={flip ? "lg:order-2" : ""}>
                   <div className="relative aspect-[5/4] overflow-hidden border border-line">
                     <Image
-                      src={p.image}
+                      src={programmeHomeImages[i] ?? p.image}
                       alt={`${p.name} — ${p.meaning}`}
                       fill
                       sizes="(max-width: 1024px) 100vw, 50vw"

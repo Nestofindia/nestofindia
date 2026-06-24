@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { PageHeader, Eyebrow } from "@/components/ui";
 import { Reveal } from "@/components/Reveal";
 import { CTABand } from "@/components/CTABand";
 import { FoundationInfographic } from "@/components/DignifyMindMap";
 import { PrinciplesTogetherTable } from "@/components/PrinciplesTogetherTable";
-import { priorityAreas, foundationOfWork, principlesTogether } from "@/lib/content";
+import { priorityAreas, foundationOfWork, foundationOfWorkImage, principlesTogether } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Our Work — Priority Areas",
@@ -48,23 +49,35 @@ export default function OurWorkPage() {
 
       <section className="border-t border-line bg-paper-deep">
         <div className="container-page py-16 lg:py-24">
-          <Reveal className="max-w-3xl">
-            <p className="flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-sm font-bold uppercase tracking-label text-indigo sm:text-base">
-              <span>Protect</span>
-              <span className="text-ochre" aria-hidden="true">•</span>
-              <span>Dignify</span>
-              <span className="text-ochre" aria-hidden="true">•</span>
-              <span>Build</span>
-            </p>
-            <h2 className="mt-4 text-3xl leading-tight sm:text-4xl lg:text-5xl">
-              {foundationOfWork.title}
-            </h2>
-            <div className="prose-body mt-6 max-w-prose">
-              {foundationOfWork.paragraphs.map((paragraph) => (
-                <p key={paragraph} className="text-lg text-ink-soft">
-                  {paragraph}
-                </p>
-              ))}
+          <Reveal className="grid items-start gap-10 lg:grid-cols-2 lg:gap-16">
+            <div>
+              <p className="flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-sm font-bold uppercase tracking-label text-indigo sm:text-base">
+                <span>Protect</span>
+                <span className="text-ochre" aria-hidden="true">•</span>
+                <span>Dignify</span>
+                <span className="text-ochre" aria-hidden="true">•</span>
+                <span>Build</span>
+              </p>
+              <h2 className="mt-4 text-3xl leading-tight sm:text-4xl lg:text-5xl">
+                {foundationOfWork.title}
+              </h2>
+              <div className="prose-body mt-6 max-w-prose">
+                {foundationOfWork.paragraphs.map((paragraph) => (
+                  <p key={paragraph} className="text-lg text-ink-soft">
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
+            </div>
+
+            <div className="relative aspect-[4/3] overflow-hidden border border-line lg:sticky lg:top-24">
+              <Image
+                src={foundationOfWorkImage}
+                alt="The Foundation of Our Work — Nest of India"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover"
+              />
             </div>
           </Reveal>
 

@@ -8,15 +8,21 @@ import { DataTable } from "@/components/DataTable";
 import { OurResponseGraph } from "@/components/OurResponseGraph";
 import {
   mission,
+  vision,
+  visionImage,
+  missionImage,
   industryGaps,
   priorityAreas,
   programmes,
+  programmeHomeImages,
   boardOfDirectors,
   challengesWeAddress,
   ourResponse,
   whyTattooingMatters,
+  whyTattooingMattersImage,
   tattooingCanBe,
   whyThisMatters,
+  whyThisMattersVideo,
 } from "@/lib/content";
 
 export default function HomePage() {
@@ -66,14 +72,48 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── Mission ──────────────────────────────────────── */}
+      {/* ── Vision — image left, content right ────────────── */}
       <section className="border-b border-line bg-paper-deep">
         <div className="container-page py-16 lg:py-24">
-          <Reveal className="grid gap-8 lg:grid-cols-[0.4fr_1fr]">
-            <Eyebrow className="lg:pt-3">Our mission</Eyebrow>
-            <p className="max-w-4xl font-display text-2xl leading-snug text-ink sm:text-3xl lg:text-[2.4rem] lg:leading-[1.25]">
-              {mission}
-            </p>
+          <Reveal className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+            <div className="relative aspect-[4/4.6] overflow-hidden border border-line">
+              <Image
+                src={visionImage}
+                alt="Our vision — Nest of India"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover"
+              />
+            </div>
+            <div>
+              <Eyebrow>Vision</Eyebrow>
+              <p className="mt-5 max-w-prose font-display text-2xl leading-snug text-ink sm:text-3xl lg:text-[2.2rem] lg:leading-[1.3]">
+                {vision}
+              </p>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ── Mission — content left, image right ────────────── */}
+      <section className="border-b border-line">
+        <div className="container-page py-16 lg:py-24">
+          <Reveal className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+            <div className="relative aspect-[4/4.6] overflow-hidden border border-line lg:order-2">
+              <Image
+                src={missionImage}
+                alt="Our mission — Nest of India"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover"
+              />
+            </div>
+            <div className="lg:order-1">
+              <Eyebrow>Mission</Eyebrow>
+              <p className="mt-5 max-w-prose font-display text-2xl leading-snug text-ink sm:text-3xl lg:text-[2.2rem] lg:leading-[1.3]">
+                {mission}
+              </p>
+            </div>
           </Reveal>
         </div>
       </section>
@@ -139,18 +179,32 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── Why tattooing matters ────────────────────────── */}
+      {/* ── Why tattooing matters — text left, image right ── */}
       <section className="border-b border-line bg-paper-deep">
         <div className="container-page py-16 lg:py-24">
-          <Reveal className="max-w-3xl">
-            {/* <Eyebrow>Why tattooing matters</Eyebrow> */}
-            <h2 className="mt-4 text-3xl leading-tight sm:text-4xl lg:text-5xl">
-              {whyTattooingMatters.title}
-            </h2>
-            <div className="prose-body mt-6 max-w-prose">
-              {whyTattooingMatters.paragraphs.map((p) => (
-                <p key={p}>{p}</p>
-              ))}
+          <Reveal className="grid items-start gap-10 lg:grid-cols-2 lg:gap-16">
+            <div>
+              {/* <Eyebrow>Why tattooing matters</Eyebrow> */}
+              <h2 className="text-3xl leading-tight sm:text-4xl lg:text-5xl">
+                {whyTattooingMatters.title}
+              </h2>
+              <div className="prose-body mt-6 max-w-prose">
+                {whyTattooingMatters.paragraphs.map((p) => (
+                  <p key={p}>{p}</p>
+                ))}
+              </div>
+            </div>
+
+            <div className="relative aspect-[4/5] overflow-hidden border border-line lg:sticky lg:top-24">
+              <video
+                src={whyThisMattersVideo}
+                className="absolute inset-0 h-full w-full object-cover"
+                autoPlay
+                muted
+                loop
+                playsInline
+                aria-label="Why tattooing matters — Nest of India"
+              />
             </div>
           </Reveal>
         </div>
@@ -177,18 +231,30 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── Why this matters to NOI ──────────────────────── */}
+      {/* ── Why this matters to NOI — text left, video right ── */}
       <section className="border-b border-line bg-paper-deep">
         <div className="container-page py-16 lg:py-24">
-          <Reveal className="max-w-3xl">
-            {/* <Eyebrow>Why this matters</Eyebrow> */}
-            <h2 className="mt-4 text-3xl leading-tight sm:text-4xl lg:text-5xl">
-              {whyThisMatters.title}
-            </h2>
-            <div className="prose-body mt-6 max-w-prose">
-              {whyThisMatters.paragraphs.map((p) => (
-                <p key={p}>{p}</p>
-              ))}
+          <Reveal className="grid items-start gap-10 lg:grid-cols-2 lg:gap-16">
+            <div>
+              {/* <Eyebrow>Why this matters</Eyebrow> */}
+              <h2 className="text-3xl leading-tight sm:text-4xl lg:text-5xl">
+                {whyThisMatters.title}
+              </h2>
+              <div className="prose-body mt-6 max-w-prose">
+                {whyThisMatters.paragraphs.map((p) => (
+                  <p key={p}>{p}</p>
+                ))}
+              </div>
+            </div>
+
+            <div className="relative aspect-[4/5] overflow-hidden border border-line">
+              <Image
+                src={whyTattooingMattersImage}
+                alt="Why this matters to Nest of India"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover"
+              />
             </div>
           </Reveal>
         </div>
@@ -241,26 +307,30 @@ export default function HomePage() {
             {programmes.map((p, i) => (
               <Reveal key={p.slug} delay={i * 60}>
                 <Link href={`/programmes#${p.slug}`} className="group block">
-                  <div className="relative aspect-[4/3] overflow-hidden border border-line">
+                  <div className="relative aspect-[3/4] overflow-hidden border border-line">
                     <Image
-                      src={p.image}
+                      src={programmeHomeImages[i] ?? p.image}
                       alt={`${p.name} — ${p.meaning}`}
                       fill
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                       className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+                    />
+                    <div
+                      className="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/30 to-transparent"
+                      aria-hidden="true"
                     />
                     {p.status ? (
                       <span className="absolute left-3 top-3 bg-ochre px-2.5 py-1 font-mono text-[0.6rem] uppercase tracking-label text-ink">
                         {p.status}
                       </span>
                     ) : null}
+                    <div className="absolute inset-x-0 bottom-0 p-5">
+                      <h3 className="font-display text-xl text-paper">{p.name}</h3>
+                      <p className="mt-1 font-mono text-[0.66rem] uppercase tracking-label text-paper/75">
+                        {p.meaning}
+                      </p>
+                    </div>
                   </div>
-                  <h3 className="mt-4 font-display text-xl text-ink group-hover:text-indigo">
-                    {p.name}
-                  </h3>
-                  <p className="mt-1 font-mono text-[0.66rem] uppercase tracking-label text-ink-faint">
-                    {p.meaning}
-                  </p>
                 </Link>
               </Reveal>
             ))}

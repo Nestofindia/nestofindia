@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { FoundationPillar, FoundationPracticeItem } from "@/lib/content";
 
 type FoundationInfographicProps = FoundationPillar & {
@@ -119,6 +120,21 @@ function InfographicIntro({
           </div>
         </div>
       </div>
+
+      {intro.image ? (
+        <div className="border-b border-line bg-transparent px-6 py-8 sm:px-10 sm:py-10">
+          <div className="mx-auto max-w-3xl">
+            <Image
+              src={intro.image}
+              alt={intro.title}
+              width={1200}
+              height={900}
+              sizes="(max-width: 1024px) 100vw, 720px"
+              className="h-auto w-full rounded-sm"
+            />
+          </div>
+        </div>
+      ) : null}
 
       <div className="border-b border-line bg-paper-deep/50 px-6 py-8 sm:px-10 sm:py-10">
         <div className="mx-auto flex max-w-3xl flex-col items-center text-center">

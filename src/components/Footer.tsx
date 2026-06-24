@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { footerNav, site } from "@/lib/site";
 
 export function Footer() {
@@ -8,14 +9,15 @@ export function Footer() {
       <div className="container-page py-16 lg:py-20">
         <div className="grid gap-12 lg:grid-cols-[1.4fr_2fr]">
           <div>
-            <div className="flex items-center gap-3">
-              <svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true">
-                <circle cx="17" cy="17" r="16" fill="none" stroke="currentColor" strokeWidth="1.25" opacity="0.7" />
-                <path d="M17 5 L9 25 L25 25 Z" fill="none" stroke="currentColor" strokeWidth="1.25" strokeLinejoin="round" opacity="0.7" />
-                <circle cx="17" cy="17" r="2.6" fill="#E7C77C" />
-              </svg>
-              <span className="font-display text-xl">Nest of India</span>
-            </div>
+            <Link href="/" aria-label={`${site.name} — home`} className="inline-flex">
+              <Image
+                src="/noi-logo-footer.png"
+                alt={`${site.name} logo`}
+                width={110}
+                height={45}
+                className="h-[45px] w-[110px] object-contain opacity-70"
+              />
+            </Link>
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-paper/70">
               A national movement protecting heritage and dignifying artists across the Indian
               tattoo and art community.
@@ -34,6 +36,31 @@ export function Footer() {
               <p className="pt-2 text-paper/55">
                 {site.address.line1}, {site.address.line2} — {site.address.postalCode}
               </p>
+            </div>
+            <div className="mt-7 flex items-center gap-3">
+              <a
+                href={site.social.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${site.name} on Instagram`}
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-paper/25 text-paper/80 transition-colors hover:border-ochre hover:text-ochre"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.6"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                >
+                  <rect x="3" y="3" width="18" height="18" rx="5" />
+                  <circle cx="12" cy="12" r="4" />
+                  <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+                </svg>
+              </a>
             </div>
           </div>
 

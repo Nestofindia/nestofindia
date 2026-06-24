@@ -17,6 +17,9 @@ export const site = {
     country: "India",
     countryCode: "IN",
   },
+  social: {
+    instagram: "https://www.instagram.com/nestofindia",
+  },
 } as const;
 
 export type NavItem = { label: string; href: string; newTab?: boolean };
@@ -55,6 +58,8 @@ export const footerNav: { title: string; items: NavItem[] }[] = [
     items: [
       { label: "Membership", href: "/membership" },
       { label: "Partnerships", href: "/membership#partnerships" },
+      { label: "Testimonials", href: "/testimonials" },
+      { label: "Blogs", href: "/blogs" },
       { label: "Contact", href: "/contact" },
     ],
   },

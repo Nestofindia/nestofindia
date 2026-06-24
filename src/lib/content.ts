@@ -4,8 +4,20 @@
 export const mission =
   "Our mission is to protect heritage and dignify artists by building a sustainable ecosystem where traditional knowledge and modern artistry thrive and grow together.";
 
+export const vision =
+  "Our vision is an India where traditional knowledge and modern artistry thrive together — supported by formal education, government recognition, health and safety standards, artist welfare, and the active preservation of heritage and tribal art.";
+
+export const visionImage =
+  "https://ik.imagekit.io/3b3z3re2y/noi%20selected%20edit%20pic%20/8f9c67f0-addc-4ac6-9338-8fb930e6db50.jpg?updatedAt=1782217322701";
+
+export const missionImage =
+  "https://ik.imagekit.io/3b3z3re2y/noi%20selected%20edit%20pic%20/Our%20mission.jpg";
+
 export const visionIntro =
   "Tattoos have been a sacred part of Indian tradition for centuries — from Adivasi tribes to ancient temple symbolism. Yet the modern industry has remained largely underground and unsupported.";
+
+export const whoWeAreVideo =
+  "https://ik.imagekit.io/3b3z3re2y/noi%20selected%20Edit%20Video/Demonstration%20of%20tattoo%20designing%20process%20by%20@packo_baing%20(1).mp4?updatedAt=1782217538938";
 
 export const whoWeAre = [
   "Nest of India is a national movement and council dedicated to unifying, uplifting, and strengthening the Indian tattoo and art community through heritage preservation, education, research, professional development, and community building.",
@@ -36,6 +48,9 @@ export const storyBehindNest = {
   closing:
     "Nest of India was born from the belief that these challenges are interconnected. By creating a space where artists, communities, educators, researchers, institutions, and supporters can come together, we hope to strengthen both the cultural foundations and future possibilities of tattooing in India.",
 };
+
+export const whyNestExistsVideo =
+  "https://ik.imagekit.io/3b3z3re2y/noi%20selected%20Edit%20Video/video_20230113_170019.mov/ik-video.mp4?updatedAt=1782218115112";
 
 export const whyNestExists = {
   eyebrow: "Why Nest of India exists",
@@ -108,6 +123,17 @@ export const ourResponse = {
   ],
 };
 
+/* Home programmes preview — background images by programme index (0–3) */
+export const programmeHomeImages = [
+  "https://ik.imagekit.io/3b3z3re2y/noi%20selected%20edit%20pic%20/93777a4c-0b48-4c66-b5b4-9e2ee0e119fb.jpg.jpg?updatedAt=1782217374665",
+  "https://ik.imagekit.io/3b3z3re2y/noi%20selected%20edit%20pic%20/IMG_8269.jpg?updatedAt=1782217385395",
+  "https://ik.imagekit.io/3b3z3re2y/noi%20selected%20edit%20pic%20/IMG_5626.jpg?updatedAt=1782217390340",
+  "https://ik.imagekit.io/3b3z3re2y/noi%20selected%20edit%20pic%20/24c2fa18-4cfb-4da0-aec3-e419a164e4ab.jpg.jpg?updatedAt=1782217378747",
+];
+
+export const whyTattooingMattersImage =
+  "https://ik.imagekit.io/3b3z3re2y/noi%20selected%20edit%20pic%20/59860245-8fb5-4dc8-8a12-f2d1edb061ef.jpg?updatedAt=1782217333791";
+
 export const whyTattooingMatters = {
   title: "Why Tattooing Matters",
   paragraphs: [
@@ -136,6 +162,9 @@ export const tattooingCanBe = {
     { as: "Heritage", meaning: "A reflection of cultural continuity" },
   ] satisfies TattooingMeaningRow[],
 };
+
+export const whyThisMattersVideo =
+  "https://ik.imagekit.io/3b3z3re2y/noi%20selected%20Edit%20Video/Road%20to%20@kulaworldwide%20II%20COLLABORATION%20@sachinaarote%20@makkadam%20@amitrajwadkarLocation%20Courtesy-.mp4?updatedAt=1782217669343";
 
 export const whyThisMatters = {
   title: "Why This Matters To Nest of India",
@@ -227,6 +256,7 @@ export type FoundationPillar = {
     eyebrow: string;
     title: string;
     paragraphs: string[];
+    image?: string;
   };
   practiceTitle: string;
   centerLabel: string;
@@ -236,6 +266,9 @@ export type FoundationPillar = {
 
 /** @deprecated use FoundationPracticeItem */
 export type DignifyPracticeItem = FoundationPracticeItem;
+
+export const foundationOfWorkImage =
+  "https://ik.imagekit.io/3b3z3re2y/noi%20selected%20edit%20pic%20/Workshop%20by%20@packo_baing%20._learntogether%20_vibe%20_artgathering.jpg?updatedAt=1782217334193";
 
 export const foundationOfWork = {
   title: "The Foundation of Our Work",
@@ -806,5 +839,58 @@ export const honours = [
     name: "Vishal Aarote",
     note: "Tattoo Artist & Piercer",
     years: "1988 – 2015",
+  },
+];
+
+/* ── Testimonials ───────────────────────────────────────────────── */
+
+export const testimonialsIntro =
+  "Voices from across the community — artists, partners, and members who have walked alongside Nest of India as it grows.";
+
+export const testimonialVideo =
+  "https://res.cloudinary.com/xhl3wx2k/video/upload/v1782334774/vid_fslclu.mp4";
+
+export type Testimonial = {
+  quote: string;
+  name: string;
+  role: string;
+};
+
+export const testimonials: Testimonial[] = [
+  {
+    quote:
+      "Nest of India gave my craft a sense of belonging. For the first time, I felt part of a movement that protects our heritage and takes artists seriously as professionals.",
+    name: "Sachin Aarote",
+    role: "Tattoo Artist & Founding Member",
+  },
+  {
+    quote:
+      "The council's work on education and ethical standards is exactly what our community needed. It has raised the bar for everyone and built real public trust.",
+    name: "Navya Pulagala",
+    role: "Marketing & Public Communications",
+  },
+  {
+    quote:
+      "Collaborating with Nest of India connected us to a network of artists who care deeply about culture and tradition. Their commitment to documentation is unmatched.",
+    name: "Amit Rajwadkar",
+    role: "Official Spokesperson",
+  },
+  {
+    quote:
+      "What stands out is the focus on community. Heritage preservation, mentorship, welfare — it all comes together to support both artists and the traditions they carry forward.",
+    name: "Snehasis Kundu",
+    role: "Technology & Compliance",
+  },
+  {
+    quote:
+      "From workshops to research, every initiative is rooted in respect for the people behind the art. Nest of India is shaping a future the whole sector can be proud of.",
+    name: "Abhinaya ES",
+    role: "Operations & Planning",
+  },
+  {
+    quote:
+      "Being part of this movement means my work is recognised as part of something larger — a living tradition with history, meaning, and a place in India's artistic landscape.",
+    name: "Karishma Nikam",
+    role: "Logistical Operations",
   },
 ];
